@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="es">
+
+    <meta charset="UTF-8">
+    <title>Adivina el número</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body ng-app="GuessTheNumber">
+
+    <div class="container" ng-controller="guessTheNumberCtrl">
+
+        <h2>Adivina el número</h2>
+
+        <p class="well lead">
+            Adivina el número es un juego interactivo en el que el usuario debe acertar un número generado
+            aleatoriamente entre el 1 y el 1000.
+        </p>
+
+        <label>Tu intento</label>
+
+        <input type="text" ng-model="guess">
+
+        <button ng-click="verifyGuess()" class="btn btn-primary btn-sm">Comprobar</button>
+        <button ng-click="initGame()" class="btn btn-warning btn-sm">Reiniciar</button>
+
+        <p>
+            <p ng-show="deviation < 0" class="alert alert-warning">El número es menor que el introducido</p>
+            <p ng-show="deviation > 0" class="alert alert-warning">El número es mayor que el introducido</p>
+            <p ng-show="deviation === 0" class="alert alert-success">Has acertado!!!</p>
+        </p>
+
+        <p class="texto-info">Número de intentos: <span class="badge">{{numOfTries}}</span></p>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="app/controllers/main.js"></script>
+
+</body>
+
+</html>
